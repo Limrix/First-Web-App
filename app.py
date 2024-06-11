@@ -8,7 +8,7 @@ def index ():
 
 @app.route("/page2")
 def page2():
-    return "<h1>Welcome to my second page</h1>"
+    return render_template("page2.html")
 
 @app.route("/my_name")
 def my_name():
