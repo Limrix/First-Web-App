@@ -13,7 +13,7 @@ def page2():
 @app.route("/my_name")
 def my_name():
     my_name = "Matthew"
-    return f"<h1>Hi my name is {my_name}</h1>"
+    return render_template("my_name.html", my_name = my_name)
 
 if __name__ == "__main__":
     app.run(debug = True, port = 5000)
