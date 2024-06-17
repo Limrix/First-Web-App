@@ -1,19 +1,8 @@
-from flask import Flask, render_template
+from flask import Flask
+from views import my_view
 
-app = Flask (__name__)
-
-@app.route("/")
-def index ():
-    return render_template("index.html")
-
-@app.route("/page2")
-def page2():
-    return render_template("page2.html")
-
-@app.route("/my_name")
-def my_name():
-    my_name = "Matthew"
-    return render_template("my_name.html", my_name = my_name)
+app = Flask(__name__)
+app.register_blueprint(my_view)
 
 if __name__ == "__main__":
     app.run(debug = True, port = 5000)

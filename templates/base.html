@@ -8,10 +8,10 @@
 <body>
     <h1>Welcome to my App</h1>
     <nav>
-        <a href="{{ url_for('index')}}">Home</a>
-        <a href="{{ url_for('page2')}}">Page 2</a>
-        <a href="{{ url_for('my_name')}}">Learn my Name</a>
-    </nav>
+        <a href="{{ url_for('my_view.index')}}">Home</a>
+        <a href="{{ url_for('my_view.about')}}">Page 2</a>
+        <a href="{{ url_for('my_view.contact')}}">Learn my Name</a>
+</nav>
 
     {% block content %}
 

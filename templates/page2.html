@@ -1,7 +1,12 @@
 {% extends 'base.html'%}
 
 {% block content %}
-
     <p>Welcome this is my test page 2</p>
 
+<p>My favourite bands are:</p>
+<ol>
+{% for band in favourite_bands %}
+<li>{{ band }}</li>
+{% endfor %}
+</ol>
 {% endblock %}
