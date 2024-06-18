@@ -13,8 +13,7 @@ def page2():
 
 @my_view.route("/page3", methods=["GET", "POST"])
 def page3():
-    if request.method =="POST":
+    if request.method == "POST":
         new_band = request.form["added_band"]
         favourite_bands.append(new_band)
-
     return render_template("page3.html")

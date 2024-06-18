@@ -6,8 +6,13 @@
 <p>My favourite bands are:</p>
 <ol>
 {% for band in favourite_bands %}
-<li>{{ band }}</li>
+<li class="band_list">{{ band }}</li>
 {% endfor %}
 </ol>
+
+<form action="/page3" method="post">
+    <input type="text" name="added_band" id="addBand" placeholder="Add a Band!">
+    <button type="submit">Submit Here</button>
+</form>
 
 {% endblock %}
