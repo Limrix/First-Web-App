@@ -1,8 +1,58 @@
-from flask import Flask
-from views import my_view
+from flask import Flask, render_template, request, redirect, url_for
+from fav_bands import favourite_bands
+from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
 
 app = Flask(__name__)
-app.register_blueprint(my_view)
+app.config['SQLALCHEMY_DATABASE_URI'] ='sqlite:///db.aqlite'
+db = SQLAlchemy(app)
+
+@app.route("/")
+def home():
+    return render_template("index.html")
+
+class Todo(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    task = db.Column(db.String(300), unique = True)
+    complete = db.Column(db.Boolean, default = False)
+
+
+@app.route("/page2")
+def dotasks():
+    todo_list = Todo.query.all()
+    print(todo_list)
+    return render_template("page2.html", todo_list = todo_list)
+
+@app.route("/add", methods=["POST"])
+def add():
+    task = request.form.get("task")
+    new_todo = Todo(task=task)
+    db.session.add(new_todo)
+    db.session.commit()
+    return redirect (url_for("dotasks"))
+
+@app.route("/update/<todo_id>")
+def update(todo_id):
+    todo = Todo.query.filter_by(id=todo_id).first()
+    if todo:
+        todo.complete = not todo.complete
+        db.session.commit()
+        return redirect(url_for("dotasks"))
+
+@app.route("/delete/<todo_id>")
+def delete(todo_id):
+    todo = Todo.query.filter_by(id=todo_id).first()
+    db.session.delete(todo)
+    db.session.commit()
+    return redirect(url_for("dotasks"))
+
+
+
+@app.route("/page3")
+def bands():
+    return render_template("page3.html")
 
 if __name__ == "__main__":
-    app.run(debug = True, port = 5000)
+    with app.app_context():
+        db.create_all()
+    app.run(debug = True, port = 8000)

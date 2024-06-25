@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container  .rating { 
+    direction: rtl;
+}
+
+.container  .rating label {
+    display: inline-block;
+    cursor: pointer;
+    color: #ebebeb;
+}
+.container .rating label i {
+    font-size: 3rem;
+    transition: 0.1s ease-in;
+
+}
+
+.container .rating lable:hover i,
+.container .rating lable:hover ~ label i {
+    color: #ffea4e;
+}
+
+.container .rating .rating-radio {
+    display: none;
+}
+
+.container .rating input[type="radio"]:checked + label i,
+.container .rating input[type="radio"]:checked ~ label i {
+    color: #ffea4e;
+}
+

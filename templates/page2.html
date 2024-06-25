@@ -1,18 +1,26 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <p>Welcome this is my test page 2</p>
+    <div>
+        <h1>To Do List</h1>
 
-<p>My favourite bands are:</p>
-<ol>
-{% for band in favourite_bands %}
-<li class="band_list">{{ band }}</li>
-{% endfor %}
-</ol>
+        <form action="/add" method="post">
+            <div>
+                <label>Todo task</label>
+                <input type="text" name="task" placeholder="Enter a Task">
+                <button type="submit">Add a Task</button>
+            </div>
+        </form>
 
-<form action="/page3" method="post">
-    <input type="text" name="added_band" id="addBand" placeholder="Add a Band!">
-    <button type="submit">Submit Here</button>
-</form>
-
+        <hr>
+        {% for todo in todo_list %}
+        <p> {{todo.id}} - {{todo.task}}</p>
+        {% if todo.complete==False %}
+        <p>Task Incomplete. <button type="button"><a href="/update/{{todo.id}}">Mark as Complete?</a></button></p>
+        {% else %}
+        <p>Task Complete. <button type="button"><a href="/update/{{todo.id}}">Mark as Incomplete?</a></button></p>
+        {% endif %}
+        <a href="/delete/{{todo.id}}"> <button type = "button">Delete this task?</button></a>
+        {% endfor %}
+    </div>
 {% endblock %}
