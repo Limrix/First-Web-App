@@ -1,18 +1,22 @@
 {% extends 'base.html' %}
 
+
 {% block content %}
-    <div>
-        <h1>To Do List</h1>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <div class="task_form">
+        <h2 class="s_header">To Do List</h2>
 
         <form action="/add" method="post">
+            <fieldset>
             <div>
                 <label>Todo task</label>
                 <input type="text" name="task" placeholder="Enter a Task">
                 <button type="submit">Add a Task</button>
             </div>
+         </fieldset>   
         </form>
 
-        <hr>
+        <fieldset>
         {% for todo in todo_list %}
         <p> {{todo.id}} - {{todo.task}}</p>
         {% if todo.complete==False %}
@@ -22,5 +26,6 @@
         {% endif %}
         <a href="/delete/{{todo.id}}"> <button type = "button">Delete this task?</button></a>
         {% endfor %}
+        </fieldset>
     </div>
 {% endblock %}

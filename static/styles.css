@@ -51,3 +51,74 @@ body {
 .navbar a:hover:before {
     width: 100%;
 }
+
+.s_header {
+    position: fixed;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+
+}
+
+.task_form {
+
+    position: fixed;
+    top: 120px;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    background: transparent;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.para1 {
+    position: fixed;
+    top: 120px;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    background: transparent;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.table_A {
+    position: fixed;
+    top: 120px;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    background: transparent;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.form_A {
+    position: fixed;
+    top: 200px;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    background: transparent;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.para2 {
+    position: fixed;
+    top: 180px;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    background: transparent;
+    justify-content: space-between;
+    align-items: center;
+}

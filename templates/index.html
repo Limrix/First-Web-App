@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 
-{% block content %}
 
-    <p>Welcome this is the main page on my app</p>
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+    <p class="para1">Welcome this is the main page on my app</p>
 
 {% endblock %}

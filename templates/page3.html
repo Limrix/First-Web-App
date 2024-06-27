@@ -2,18 +2,12 @@
 
 {% block content %}
 
-<style>
-    table, th, td {
-        border: 1px solid black;
-    }
-</style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <link rel="stylesheet" href="style.css">
-<p>Welcome this is my test page 3</p>
 
-<p>My favourite bands are:</p>
+<p class="para2">My favourite bands are:</p>
 
-<table style="width: 50%">
+<table class="table_A">
     <tr>
         <th>Band</th>
         <th>Song</th>
@@ -31,7 +25,7 @@
 </table>
 
 
-<form action="{{ url_for('bands') }}" method="post">
+<form class="form_A" action="{{ url_for('bands') }}" method="post">
     <input type="text" name="added_band" id="addBand" placeholder="Add a Band!">
     <input type="text" name="added_song" id="addSong" placeholder="Add a Song!">
     <input type="text" name="added_album" id="addAlbum" placeholder="Add an Album!">
